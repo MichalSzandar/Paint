@@ -7,6 +7,8 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToolBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
@@ -23,6 +25,10 @@ public class GUI
 {
     public GUI(Stage stage)
     {
+        Image circleImg = new Image(getClass().getResource("/circle.png").toExternalForm());
+        Image rectImg = new Image(getClass().getResource("/rectangle.png").toExternalForm());
+        Image triangleImg = new Image(getClass().getResource("/triangle.png").toExternalForm());
+
         PaintPane canvas = new PaintPane();
 
         DrawShapeState drawRectangle = new DrawShapeState(new RectangleBuilder());
@@ -30,8 +36,13 @@ public class GUI
         DrawShapeState drawTriangle = new DrawShapeState(new TriangleBuilder());
 
         ShapeButton rectangleButton = new ShapeButton("rectangle", canvas, drawRectangle);
+        rectangleButton.setGraphic(createImageView(rectImg));
+
         ShapeButton circleButton = new ShapeButton("circle", canvas, drawCircle);
+        circleButton.setGraphic(createImageView(circleImg));
+
         ShapeButton triangleButton = new ShapeButton("triangle",  canvas, drawTriangle);
+        triangleButton.setGraphic(createImageView(triangleImg));
 
         FileChooser fileChooser = new FileChooser();
 
@@ -80,6 +91,14 @@ public class GUI
         stage.setTitle("Paint");
         stage.show();
         MyLogger.logger.log(Level.INFO, "Scene has been inited");
+    }
+
+    private ImageView createImageView(Image img){
+        ImageView view = new ImageView();
+        view.setFitHeight(25);
+        view.setFitWidth(25);
+        view.setImage(img);
+        return view;
     }
     
 }

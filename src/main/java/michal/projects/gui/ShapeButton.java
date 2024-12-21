@@ -12,7 +12,7 @@ public class ShapeButton extends Button
 {
     public ShapeButton(String name, PaintPane canvas, DrawShapeState state)
     {
-        super(name);
+        super("");
         setOnAction(new EventHandler<ActionEvent>() 
         {
             @Override
