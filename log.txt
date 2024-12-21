@@ -1,0 +1,30 @@
+gru 21, 2024 4:16:56 PM michal.projects.gui.GUI <init>
+INFO: Scene has been inited
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Rectangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Rectangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Rectangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Rectangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Rectangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 21, 2024 4:17:09 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas

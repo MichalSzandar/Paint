@@ -10,8 +10,12 @@ import java.util.logging.Level;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import michal.projects.gui.PaintPane;
+import michal.projects.shape_builders.ShapeBuilder;
+import michal.projects.shapes.IMyShape;
 
 public final class Serializer {
+    @SuppressWarnings("exports")
     public static void serializeShapesFromCanvas(PaintPane canvas, String fileName)
     {
         List<ShapeData> shapes = new ArrayList<ShapeData>();
@@ -19,7 +23,7 @@ public final class Serializer {
         for(var node : canvas.getChildren())
         {
             if(node instanceof IMyShape)
-                shapes.add(new ShapeData(((IMyShape)node).getVertices(), utils.colorToHex((Color)((Shape)node).getFill()), ((Shape)node).getRotate(), ((IMyShape)node).getType(), ((Shape)node).getScaleX(), ((Shape)node).getScaleY()));
+                shapes.add(new ShapeData(((IMyShape)node).getVertices(), Utils.colorToHex((Color)((Shape)node).getFill()), ((Shape)node).getRotate(), ((IMyShape)node).getType(), ((Shape)node).getScaleX(), ((Shape)node).getScaleY()));
             
             MyLogger.logger.log(Level.INFO, "shape saved");
         }
@@ -34,6 +38,7 @@ public final class Serializer {
         }
     }
 
+    @SuppressWarnings("exports")
     public static void desrializeShapes(PaintPane canvas, String fileName)
     {
         try
@@ -46,7 +51,7 @@ public final class Serializer {
                 if (data != null) {
                     ShapeBuilder builder = canvas.shapeMap.getValue(data.getType());
                     builder.loadPointsFromList(data.getParameters());
-                    Shape shape = builder.generateShape(utils.hexToColor(data.getFill()));
+                    Shape shape = builder.generateShape(Utils.hexToColor(data.getFill()));
                     shape.setRotate(data.getAngle());
                     shape.setScaleX(data.getScaleX());
                     shape.setScaleY(data.getScaleY());

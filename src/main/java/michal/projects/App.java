@@ -2,6 +2,7 @@ package michal.projects;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import michal.projects.gui.GUI;
 
 public class App extends Application
 {
