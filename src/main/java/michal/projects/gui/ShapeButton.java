@@ -6,11 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import michal.projects.MyLogger;
-import michal.projects.states.DrawShapeState;
+import michal.projects.states.PaneState;
 
 public class ShapeButton extends Button
 {
-    public ShapeButton(String name, PaintPane canvas, DrawShapeState state)
+    public ShapeButton(PaintPane canvas, PaneState state)
     {
         super("");
         setOnAction(new EventHandler<ActionEvent>() 
@@ -18,10 +18,7 @@ public class ShapeButton extends Button
             @Override
             public void handle(ActionEvent e)
             {   
-                canvas.setOnMouseClicked(event -> {state.onMouseClicked(event, canvas);});
-                canvas.setOnMouseMoved(event->{state.onMouseMoved(event, canvas);});
-                canvas.setOnMouseExited(event -> {state.onMouseExited(event, canvas);});
-
+                canvas.setState(state);
                 MyLogger.logger.log(Level.INFO, "draw shape enabled");
             }
         });

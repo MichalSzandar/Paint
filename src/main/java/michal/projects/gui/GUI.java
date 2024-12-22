@@ -19,6 +19,7 @@ import michal.projects.Serializer;
 import michal.projects.shape_builders.CircleBuilder;
 import michal.projects.shape_builders.RectangleBuilder;
 import michal.projects.shape_builders.TriangleBuilder;
+import michal.projects.states.DrawPencilState;
 import michal.projects.states.DrawShapeState;
 
 public class GUI 
@@ -31,18 +32,21 @@ public class GUI
 
         PaintPane canvas = new PaintPane();
 
-        DrawShapeState drawRectangle = new DrawShapeState(new RectangleBuilder());
-        DrawShapeState drawCircle = new DrawShapeState(new CircleBuilder());
-        DrawShapeState drawTriangle = new DrawShapeState(new TriangleBuilder());
+        DrawShapeState drawRectangle = new DrawShapeState(canvas, new RectangleBuilder());
+        DrawShapeState drawCircle = new DrawShapeState(canvas, new CircleBuilder());
+        DrawShapeState drawTriangle = new DrawShapeState(canvas, new TriangleBuilder());
 
-        ShapeButton rectangleButton = new ShapeButton("rectangle", canvas, drawRectangle);
+        ShapeButton rectangleButton = new ShapeButton(canvas, drawRectangle);
         rectangleButton.setGraphic(createImageView(rectImg));
 
-        ShapeButton circleButton = new ShapeButton("circle", canvas, drawCircle);
+        ShapeButton circleButton = new ShapeButton(canvas, drawCircle);
         circleButton.setGraphic(createImageView(circleImg));
 
-        ShapeButton triangleButton = new ShapeButton("triangle",  canvas, drawTriangle);
+        ShapeButton triangleButton = new ShapeButton(canvas, drawTriangle);
         triangleButton.setGraphic(createImageView(triangleImg));
+
+        ShapeButton pencilButton = new ShapeButton(canvas, new DrawPencilState(canvas));
+        pencilButton.setText("Pencil");
 
         FileChooser fileChooser = new FileChooser();
 
@@ -83,7 +87,7 @@ public class GUI
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(menu1, menu2);
 
-        ToolBar toolBar = new ToolBar(circleButton, rectangleButton, triangleButton, colorPicker);
+        ToolBar toolBar = new ToolBar(circleButton, rectangleButton, triangleButton, pencilButton, colorPicker);
         VBox root = new VBox(menuBar, toolBar,canvas);
         Scene scene = new Scene(root);
         

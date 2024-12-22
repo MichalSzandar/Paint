@@ -11,23 +11,24 @@ import michal.projects.gui.PaintPane;
 import michal.projects.shape_builders.ShapeBuilder;
 import michal.projects.shapes.IMyShape;
 
-public class DrawShapeState {
+public class DrawShapeState extends PaneState{
 
     private Shape shape;
     private Shape preview;
     private ShapeBuilder builder;
 
-    public DrawShapeState(ShapeBuilder builder)
+    public DrawShapeState(PaintPane canvas, ShapeBuilder builder)
     {
+        super(canvas);
         this.builder = builder;
     }
     
     /**
      * @brief when user clicks on canvas we want to generate shape if there are enough points
      * @param e
-     * @param canvas
      */
-    public void onMouseClicked(MouseEvent e, PaintPane canvas)
+    @Override
+    protected void onMouseClicked(MouseEvent e)
     {
         MyLogger.logger.log(Level.INFO, e.getX() + " " + e.getY());
         
@@ -56,9 +57,9 @@ public class DrawShapeState {
     /**
      * @brief called when user moves the mouse. Changes parameters of preview shape to match current mouse position
      * @param e mouse event
-     * @param canvas PaintPane object that stores all the shapes on Scene
      */
-    public void onMouseMoved(MouseEvent e, PaintPane canvas)
+    @Override
+    protected void onMouseMoved(MouseEvent e)
     {
         if(preview instanceof IMyShape)
             ((IMyShape)preview).setSecondParameter(new Point(e.getX(), e.getY()));
@@ -74,7 +75,8 @@ public class DrawShapeState {
      * @see #exitState(MouseEvent, PaintPane)
      * @see PaintPane
      */
-    public void onMouseExited(MouseEvent e, PaintPane canvas)
+    @Override
+    protected void onMouseExited(MouseEvent e)
     {
         if(builder.getNumberOfPoints()!=0)
             exitState(canvas);
@@ -82,15 +84,22 @@ public class DrawShapeState {
 
     /**
      * @brief clears preview shape and selected points, changes mouse events to default
-     * @param canvas PaintPane object that stores all the shapes on Scene
      * @see PaintPane
      */
     private void exitState(PaintPane canvas)
     {
         canvas.getChildren().remove(preview);
         builder.clearPoints();
-        canvas.setOnMouseClicked(event -> {DefaultState.onMouseClicked(event);});
-        canvas.setOnMouseMoved(null);
-        canvas.setOnMouseExited(null);
+        canvas.setState(new DefaultState(canvas));
+    }
+
+    @Override
+    protected void onMousePressed(MouseEvent e) {
+        return;
+    }
+
+    @Override
+    protected void onMouseDragged(MouseEvent e) {
+        return;
     }
 }

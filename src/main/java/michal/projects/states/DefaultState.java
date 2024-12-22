@@ -5,12 +5,16 @@ import javafx.scene.input.MouseEvent;
 import michal.projects.gui.PaintPane;
 import michal.projects.shapes.IMyShape;
 
-public final class DefaultState 
+public class DefaultState extends PaneState
 {
+    public DefaultState(PaintPane pane){
+        super(pane);
+    }
     /**
      * if user clicked on shape it sets the shape to active and all other shapes on scene to disabled
      */
-    public static void onMouseClicked(MouseEvent e)
+    @Override
+    protected void onMouseClicked(MouseEvent e)
     {
         Node object = e.getPickResult().getIntersectedNode();
         Node canva;
@@ -28,5 +32,25 @@ public final class DefaultState
         
         if(object instanceof IMyShape )
             ((IMyShape)object).setActive();    
+    }
+
+    @Override
+    protected void onMousePressed(MouseEvent e) {
+        return;
+    }
+
+    @Override
+    protected void onMouseDragged(MouseEvent e) {
+        return;
+    }
+
+    @Override
+    protected void onMouseMoved(MouseEvent e) {
+        return;
+    }
+
+    @Override
+    protected void onMouseExited(MouseEvent e) {
+        return;
     }
 }

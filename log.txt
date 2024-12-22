@@ -1,196 +1,72 @@
-gru 21, 2024 6:02:53 PM michal.projects.gui.GUI <init>
+gru 22, 2024 8:54:50 PM michal.projects.gui.GUI <init>
 INFO: Scene has been inited
-gru 21, 2024 6:02:59 PM michal.projects.gui.ShapeButton$1 handle
+gru 22, 2024 8:54:51 PM michal.projects.gui.ShapeButton$1 handle
 INFO: draw shape enabled
-gru 21, 2024 6:03:00 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: 357.0 210.0
-gru 21, 2024 6:03:00 PM michal.projects.states.DrawShapeState onMouseClicked
+gru 22, 2024 8:55:03 PM michal.projects.gui.ShapeButton$1 handle
+INFO: draw shape enabled
+gru 22, 2024 8:55:04 PM michal.projects.states.DrawShapeState onMouseClicked
+INFO: 33.0 273.0
+gru 22, 2024 8:55:04 PM michal.projects.states.DrawShapeState onMouseClicked
 INFO: new preview added to the scene
-gru 21, 2024 6:03:00 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: 343.0 300.0
-gru 21, 2024 6:03:00 PM michal.projects.states.DrawShapeState onMouseClicked
+gru 22, 2024 8:55:04 PM michal.projects.states.DrawShapeState onMouseClicked
+INFO: 106.0 421.0
+gru 22, 2024 8:55:04 PM michal.projects.states.DrawShapeState onMouseClicked
 INFO: new shape added to the scene
-gru 21, 2024 6:03:01 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:05 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:01 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:05 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:01 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:05 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:01 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:05 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:01 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:05 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:02 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:06 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:03 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:04 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:04 PM michal.projects.shapes.MyTriangle setActive
-INFO: is active
-gru 21, 2024 6:03:04 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:08 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:04 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:08 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:04 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:08 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:05 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:09 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:06 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:09 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:06 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:06 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:09 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:07 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:10 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:07 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:11 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:07 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:11 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:07 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:13 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:08 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:13 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:08 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:13 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:08 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:14 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:10 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:14 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:11 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:11 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:14 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:11 PM michal.projects.states.EditShapeState onMousePressed
+gru 22, 2024 8:55:30 PM michal.projects.Serializer serializeShapesFromCanvas
+INFO: shape saved
+gru 22, 2024 8:55:30 PM michal.projects.Serializer serializeShapesFromCanvas
+INFO: shape saved
+gru 22, 2024 8:55:43 PM michal.projects.Serializer desrializeShapes
+INFO: Triangle added to canvas
+gru 22, 2024 8:55:49 PM michal.projects.shapes.MyTriangle setDisabled
+INFO: is disabled
+gru 22, 2024 8:55:49 PM michal.projects.shapes.MyTriangle setActive
+INFO: is active
+gru 22, 2024 8:55:50 PM michal.projects.states.EditShapeState onMousePressed
 INFO: mouse pressed
-gru 21, 2024 6:03:12 PM michal.projects.shapes.MyTriangle setDisabled
+gru 22, 2024 8:55:50 PM michal.projects.shapes.MyTriangle setDisabled
 INFO: is disabled
-gru 21, 2024 6:03:12 PM michal.projects.shapes.MyTriangle setActive
+gru 22, 2024 8:55:50 PM michal.projects.shapes.MyTriangle setActive
 INFO: is active
-gru 21, 2024 6:03:12 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:13 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:13 PM michal.projects.shapes.MyTriangle setActive
-INFO: is active
-gru 21, 2024 6:03:13 PM michal.projects.states.EditShapeState onMousePressed
-INFO: mouse pressed
-gru 21, 2024 6:03:16 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:19 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled
-gru 21, 2024 6:03:20 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: 392.0 161.0
-gru 21, 2024 6:03:20 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: new preview added to the scene
-gru 21, 2024 6:03:20 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: 531.0 471.0
-gru 21, 2024 6:03:20 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: new shape added to the scene
-gru 21, 2024 6:03:21 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:21 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:21 PM michal.projects.shapes.MyRectangle setActive
-INFO: is active
-gru 21, 2024 6:03:21 PM michal.projects.states.EditShapeState onMousePressed
-INFO: mouse pressed
-gru 21, 2024 6:03:21 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:21 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:21 PM michal.projects.shapes.MyRectangle setActive
-INFO: is active
-gru 21, 2024 6:03:24 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled
-gru 21, 2024 6:03:25 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: 660.0 119.0
-gru 21, 2024 6:03:25 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: new preview added to the scene
-gru 21, 2024 6:03:25 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: 852.0 337.0
-gru 21, 2024 6:03:25 PM michal.projects.states.DrawShapeState onMouseClicked
-INFO: new shape added to the scene
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyCircle setActive
-INFO: is active
-gru 21, 2024 6:03:26 PM michal.projects.states.EditShapeState onMousePressed
-INFO: mouse pressed
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:26 PM michal.projects.shapes.MyCircle setActive
-INFO: is active
-gru 21, 2024 6:03:27 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:27 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:27 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:27 PM michal.projects.shapes.MyRectangle setActive
-INFO: is active
-gru 21, 2024 6:03:28 PM michal.projects.states.EditShapeState onMousePressed
-INFO: mouse pressed
-gru 21, 2024 6:03:28 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:28 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:28 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:28 PM michal.projects.shapes.MyRectangle setActive
-INFO: is active
-gru 21, 2024 6:03:29 PM michal.projects.states.EditShapeState onMousePressed
-INFO: mouse pressed
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyRectangle setActive
-INFO: is active
-gru 21, 2024 6:03:30 PM michal.projects.states.EditShapeState onMousePressed
-INFO: mouse pressed
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:30 PM michal.projects.shapes.MyRectangle setActive
-INFO: is active
-gru 21, 2024 6:03:31 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:31 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:31 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:35 PM michal.projects.shapes.MyTriangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:35 PM michal.projects.shapes.MyRectangle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:35 PM michal.projects.shapes.MyCircle setDisabled
-INFO: is disabled
-gru 21, 2024 6:03:35 PM michal.projects.shapes.MyCircle setActive
-INFO: is active
-gru 21, 2024 6:03:37 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled
-gru 21, 2024 6:03:38 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled
-gru 21, 2024 6:03:38 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled
-gru 21, 2024 6:03:39 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled
-gru 21, 2024 6:03:39 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled
-gru 21, 2024 6:03:40 PM michal.projects.gui.ShapeButton$1 handle
-INFO: draw shape enabled

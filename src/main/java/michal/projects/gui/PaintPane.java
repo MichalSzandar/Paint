@@ -5,11 +5,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import michal.projects.ShapeMap;
 import michal.projects.states.DefaultState;
+import michal.projects.states.PaneState;
 
 public class PaintPane extends Pane 
 {
     private Color activeColor;
     public  ShapeMap shapeMap;
+    private PaneState state;
 
     public PaintPane()
     {
@@ -22,9 +24,8 @@ public class PaintPane extends Pane
         setClip(clip);
     
         activeColor = Color.BLACK;
-        setOnMouseClicked(event -> { DefaultState.onMouseClicked(event);});
-
-        
+        state = new DefaultState(this);
+        state.setMouseEvents();
     }
 
     public Color getActiveColor()
@@ -35,5 +36,10 @@ public class PaintPane extends Pane
     public void setActiveColor(Color color)
     {
         activeColor = color;
+    }
+
+    public void setState(PaneState state){
+        this.state = state;
+        state.setMouseEvents();
     }
 }
