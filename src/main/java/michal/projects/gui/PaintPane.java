@@ -12,6 +12,7 @@ public class PaintPane extends Pane
     private Color activeColor;
     public  ShapeMap shapeMap;
     private PaneState state;
+    private double currentBrushSize = 5;
 
     public PaintPane()
     {
@@ -36,6 +37,14 @@ public class PaintPane extends Pane
     public void setActiveColor(Color color)
     {
         activeColor = color;
+    }
+
+    public double getCurrentBrushSize(){
+        return currentBrushSize;
+    }
+
+    public void setBrushSize(double size){
+        currentBrushSize = size;
     }
 
     public void setState(PaneState state){

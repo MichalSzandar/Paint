@@ -3,9 +3,11 @@ import java.io.File;
 import java.util.logging.Level;
 import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,8 +21,10 @@ import michal.projects.Serializer;
 import michal.projects.shape_builders.CircleBuilder;
 import michal.projects.shape_builders.RectangleBuilder;
 import michal.projects.shape_builders.TriangleBuilder;
+import michal.projects.states.DefaultState;
 import michal.projects.states.DrawPencilState;
 import michal.projects.states.DrawShapeState;
+import michal.projects.states.DrawSprayState;
 
 public class GUI 
 {
@@ -29,6 +33,10 @@ public class GUI
         Image circleImg = new Image(getClass().getResource("/circle.png").toExternalForm());
         Image rectImg = new Image(getClass().getResource("/rectangle.png").toExternalForm());
         Image triangleImg = new Image(getClass().getResource("/triangle.png").toExternalForm());
+        Image pencilImg = new Image(getClass().getResource("/default_brush.png").toExternalForm());
+        Image highlighterImg = new Image(getClass().getResource("/highlighter.png").toExternalForm());
+        Image sprayImg = new Image(getClass().getResource("/spray.png").toExternalForm());
+        Image handImg = new Image(getClass().getResource("/hand.png").toExternalForm());
 
         PaintPane canvas = new PaintPane();
 
@@ -45,8 +53,17 @@ public class GUI
         ShapeButton triangleButton = new ShapeButton(canvas, drawTriangle);
         triangleButton.setGraphic(createImageView(triangleImg));
 
-        ShapeButton pencilButton = new ShapeButton(canvas, new DrawPencilState(canvas));
-        pencilButton.setText("Pencil");
+        ShapeButton pencilButton = new ShapeButton(canvas, new DrawPencilState(canvas, 1));
+        pencilButton.setGraphic(createImageView(pencilImg));
+
+        ShapeButton highlighterButton = new ShapeButton(canvas, new DrawPencilState(canvas, 0.5));
+        highlighterButton.setGraphic(createImageView(highlighterImg));
+
+        ShapeButton sprayButton = new ShapeButton(canvas, new DrawSprayState(canvas));
+        sprayButton.setGraphic(createImageView(sprayImg));
+
+        ShapeButton handButton = new ShapeButton(canvas, new DefaultState(canvas));
+        handButton.setGraphic(createImageView(handImg));
 
         FileChooser fileChooser = new FileChooser();
 
@@ -77,6 +94,15 @@ public class GUI
         colorPicker.setOnAction(event -> {
             canvas.setActiveColor(colorPicker.getValue());
         });
+
+        Label radiusLabel = new Label("size of brush: ");
+        Slider radiusSlider = new Slider(1, 50, 5);
+        radiusSlider.setBlockIncrement(0.5);
+        radiusSlider.valueProperty().addListener((obs, oldVal, newVal) -> canvas.setBrushSize(newVal.doubleValue()));
+        radiusSlider.setShowTickLabels(true);
+        radiusSlider.setShowTickMarks(true);
+
+        VBox radiusControl = new VBox(5, radiusLabel, radiusSlider);
     
         final Menu menu1 = new Menu("File");
         menu1.getItems().addAll(open, save);
@@ -87,7 +113,7 @@ public class GUI
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(menu1, menu2);
 
-        ToolBar toolBar = new ToolBar(circleButton, rectangleButton, triangleButton, pencilButton, colorPicker);
+        ToolBar toolBar = new ToolBar(circleButton, rectangleButton, triangleButton, handButton, pencilButton, highlighterButton, sprayButton, colorPicker, radiusControl);
         VBox root = new VBox(menuBar, toolBar,canvas);
         Scene scene = new Scene(root);
         

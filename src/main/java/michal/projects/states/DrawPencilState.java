@@ -8,13 +8,11 @@ import michal.projects.gui.PaintPane;
 
 public class DrawPencilState extends PaneState{
     private Path currentPath;
-    private double size;
     private double opacity;
 
-    public DrawPencilState(PaintPane canvas){
+    public DrawPencilState(PaintPane canvas, double opacity){
         super(canvas);
-        size = 5;
-        opacity = 1;  
+        this.opacity = opacity; 
     }
 
     @Override
@@ -25,7 +23,7 @@ public class DrawPencilState extends PaneState{
     @Override
     protected void onMousePressed(MouseEvent e) {
         currentPath = new Path();
-        currentPath.setStrokeWidth(size);
+        currentPath.setStrokeWidth(canvas.getCurrentBrushSize());
         currentPath.setOpacity(opacity);
         currentPath.setStroke(canvas.getActiveColor());
 
