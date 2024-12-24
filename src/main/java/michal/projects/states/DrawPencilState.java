@@ -1,6 +1,7 @@
 package michal.projects.states;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -47,6 +48,11 @@ public class DrawPencilState extends PaneState{
 
     @Override
     protected void onMouseExited(MouseEvent e) {
+        return;
+    }
+
+    @Override
+    protected void onScroll(ScrollEvent e) {
         return;
     }
     

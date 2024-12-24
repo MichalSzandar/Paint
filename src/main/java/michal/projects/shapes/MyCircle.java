@@ -8,12 +8,10 @@ import javafx.scene.shape.StrokeType;
 import michal.projects.MyLogger;
 import michal.projects.Point;
 import michal.projects.Utils;
-import michal.projects.gui.PaintPane;
-import michal.projects.states.EditShapeState;
 
 public class MyCircle extends Circle implements IMyShape
 {
-    private EditShapeState editState;
+    private boolean isActive;
     
     /**
      * @brief created MyCircle object based on center point, radius, color
@@ -31,7 +29,7 @@ public class MyCircle extends Circle implements IMyShape
         setStrokeWidth(4);
         setStroke(Color.TRANSPARENT);
 
-        editState = new EditShapeState();
+        isActive = false;
     }
 
     @Override
@@ -49,12 +47,7 @@ public class MyCircle extends Circle implements IMyShape
     public void setActive() 
     {
         setStroke(Utils.invertColor(getFill()));
-        setOnMousePressed(event -> {editState.onMousePressed(event);});
-        setOnMouseDragged(event -> {editState.onMouseDrag(event);});
-        setOnScroll(event -> {editState.onScroll(event);});
-
-        if(getParent() instanceof PaintPane)
-            setOnMouseClicked(event -> {editState.onMouseClicked(event);});
+        isActive = true;
 
         MyLogger.logger.log(Level.INFO, "is active");
     }
@@ -63,11 +56,7 @@ public class MyCircle extends Circle implements IMyShape
     public void setDisabled() 
     {
         setStroke(Color.TRANSPARENT);
-
-        setOnMousePressed(null);
-        setOnMouseDragged(null);
-        setOnScroll(null);
-        setOnMouseClicked(null);
+        isActive = false;
 
         MyLogger.logger.log(Level.INFO, "is disabled");
     }
@@ -89,6 +78,11 @@ public class MyCircle extends Circle implements IMyShape
     public void setParameters(ArrayList<Point> points) {
         moveShape(points.get(0));
         setSecondParameter(points.get(1));
+    }
+
+    @Override
+    public boolean isActive() {
+        return isActive;
     }
 
 }

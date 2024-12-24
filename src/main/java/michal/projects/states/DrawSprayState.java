@@ -3,6 +3,7 @@ package michal.projects.states;
 import java.util.Random;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.shape.Circle;
 import michal.projects.gui.PaintPane;
 
@@ -55,5 +56,10 @@ public class DrawSprayState extends PaneState{
             Circle dot = new Circle(dx, dy, 1, canvas.getActiveColor()); // Radius 1, Black color
             canvas.getChildren().add(dot);
         }
+    }
+
+    @Override
+    protected void onScroll(ScrollEvent e) {
+        return;
     }
 }

@@ -1,12 +1,24 @@
 package michal.projects.states;
 
+import java.util.logging.Level;
+
 import javafx.scene.Node;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
+import javafx.scene.shape.Shape;
+import michal.projects.MyLogger;
+import michal.projects.Point;
 import michal.projects.gui.PaintPane;
 import michal.projects.shapes.IMyShape;
 
 public class DefaultState extends PaneState
 {
+    private IMyShape shape;
+    private double difX;
+    private double difY;
+    private double startRotation;
+
     public DefaultState(PaintPane pane){
         super(pane);
     }
@@ -16,32 +28,50 @@ public class DefaultState extends PaneState
     @Override
     protected void onMouseClicked(MouseEvent e)
     {
-        Node object = e.getPickResult().getIntersectedNode();
-        Node canva;
-
-        if(object instanceof PaintPane)
-            canva = object;
-        else if(object.getParent() instanceof PaintPane)
-            canva = object.getParent();
-        else
-            throw new IndexOutOfBoundsException("object is not PaintPane");
+        if(e.getButton().equals(MouseButton.PRIMARY)){
+            Node object = e.getPickResult().getIntersectedNode();
         
-        for (Node node : ((PaintPane)canva).getChildrenUnmodifiable()) 
-            if(node instanceof IMyShape)
-                ((IMyShape)node).setDisabled();
+            for (Node node : canvas.getChildrenUnmodifiable()) 
+                if(node instanceof IMyShape)
+                    ((IMyShape)node).setDisabled();
+            
+            if(object instanceof IMyShape && object instanceof Shape){
+                ((IMyShape)object).setActive();
+                shape = (IMyShape)object;
+            }
+        } else if(e.getButton().equals(MouseButton.SECONDARY) && e.isControlDown() &&shape != null && shape.isActive()){
+            ((Shape)shape).setFill(canvas.getActiveColor());
+        }
         
-        if(object instanceof IMyShape )
-            ((IMyShape)object).setActive();    
+                
     }
 
     @Override
     protected void onMousePressed(MouseEvent e) {
-        return;
+        if(shape == null || !shape.isActive()){
+            return;
+        }
+
+        difX = e.getSceneX() - shape.getVertices().get(0).getX();
+        difY = e.getSceneY() - shape.getVertices().get(0).getY();
+        startRotation = ((Shape)shape).getRotate();
+        MyLogger.logger.log(Level.INFO, "mouse pressed");
     }
 
     @Override
     protected void onMouseDragged(MouseEvent e) {
-        return;
+        if(shape == null || !shape.isActive()){
+            return;
+        }
+
+        if(e.getButton() == MouseButton.PRIMARY)
+        {
+            shape.moveShape(new Point(e.getSceneX()-difX, e.getSceneY()-difY));
+        }
+        else if(e.getButton() == MouseButton.SECONDARY)
+        {
+            ((Shape)shape).setRotate((startRotation + e.getSceneX()- shape.getVertices().get(0).getX() - difX)%360);
+        }
     }
 
     @Override
@@ -52,5 +82,17 @@ public class DefaultState extends PaneState
     @Override
     protected void onMouseExited(MouseEvent e) {
         return;
+    }
+
+    @Override
+    protected void onScroll(ScrollEvent e) {
+        double zoomfactor = 1.05;
+        double deltaY = e.getDeltaY();
+        if(deltaY<0)
+            zoomfactor = 1.8 - zoomfactor;
+        Shape shape = (Shape)this.shape;
+        shape.setScaleX(shape.getScaleX()*zoomfactor);
+        shape.setScaleY(shape.getScaleY()*zoomfactor);
+        shape.setStrokeWidth(shape.getStrokeWidth()/zoomfactor);
     }
 }

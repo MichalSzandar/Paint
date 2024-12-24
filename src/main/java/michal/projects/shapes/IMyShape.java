@@ -44,4 +44,6 @@ public interface IMyShape
      * @return A string representing type of the shape.
      */
     public String getType();
+
+    public boolean isActive();
 }

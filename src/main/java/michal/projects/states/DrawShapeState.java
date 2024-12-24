@@ -4,6 +4,7 @@ import java.util.logging.Level;
 
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.shape.Shape;
 import michal.projects.MyLogger;
 import michal.projects.Point;
@@ -100,6 +101,11 @@ public class DrawShapeState extends PaneState{
 
     @Override
     protected void onMouseDragged(MouseEvent e) {
+        return;
+    }
+
+    @Override
+    protected void onScroll(ScrollEvent e) {
         return;
     }
 }

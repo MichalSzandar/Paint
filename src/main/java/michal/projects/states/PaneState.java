@@ -1,6 +1,7 @@
 package michal.projects.states;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import michal.projects.gui.PaintPane;
 
 public abstract class PaneState {
@@ -15,6 +16,7 @@ public abstract class PaneState {
     protected abstract void onMouseDragged(MouseEvent e);
     protected abstract void onMouseMoved(MouseEvent e);
     protected abstract void onMouseExited(MouseEvent e);
+    protected abstract void onScroll(ScrollEvent e);
 
     public void setMouseEvents(){
         canvas.setOnMouseClicked(event -> onMouseClicked(event));
@@ -22,5 +24,6 @@ public abstract class PaneState {
         canvas.setOnMouseDragged(event -> onMouseDragged(event));
         canvas.setOnMouseMoved(event -> onMouseMoved(event));
         canvas.setOnMouseExited(event -> onMouseExited(event));
+        canvas.setOnScroll(event -> onScroll(event));
     }
 }

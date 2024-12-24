@@ -9,14 +9,13 @@ import javafx.scene.shape.StrokeType;
 import michal.projects.MyLogger;
 import michal.projects.Point;
 import michal.projects.Utils;
-import michal.projects.gui.PaintPane;
-import michal.projects.states.EditShapeState;
 
 public class MyRectangle extends Rectangle implements IMyShape
 {
     private double initialX;
     private double initialY;
-    private EditShapeState editState;
+    private boolean isActive;
+    //private EditShapeState editState;
 
     public MyRectangle(double startX, double startY, double width, double height, Color borderColor)
     {
@@ -29,7 +28,7 @@ public class MyRectangle extends Rectangle implements IMyShape
         setStrokeWidth(4);
         setStroke(Color.TRANSPARENT);
 
-        editState = new EditShapeState();
+        isActive = false;
     }
 
     @Override
@@ -64,12 +63,7 @@ public class MyRectangle extends Rectangle implements IMyShape
     public void setActive() 
     {
         setStroke(Utils.invertColor(getFill()));
-        setOnMousePressed(event -> {editState.onMousePressed(event);});
-        setOnMouseDragged(event -> {editState.onMouseDrag(event);});
-        setOnScroll(event -> {editState.onScroll(event);});
-
-        if(getParent() instanceof PaintPane)
-            setOnMouseClicked(event -> {editState.onMouseClicked(event);});
+        isActive = true;
 
         MyLogger.logger.log(Level.INFO, "is active");
     }
@@ -78,11 +72,7 @@ public class MyRectangle extends Rectangle implements IMyShape
     public void setDisabled() 
     {
         setStroke(Color.TRANSPARENT);
-        
-        setOnMousePressed(null);
-        setOnMouseDragged(null);
-        setOnScroll(null);
-        setOnMouseClicked(null);
+        isActive = false;
 
         MyLogger.logger.log(Level.INFO, "is disabled");
     }
@@ -98,6 +88,11 @@ public class MyRectangle extends Rectangle implements IMyShape
         params.add(new Point(getX(), getY()));
         params.add(new Point(getX() + getWidth(), getY() + getHeight()));
         return params;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isActive;
     }
 
 
