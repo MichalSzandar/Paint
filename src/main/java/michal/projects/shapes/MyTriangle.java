@@ -17,7 +17,7 @@ public class MyTriangle extends Polygon implements IMyShape
 
     public MyTriangle(double startX, double startY, double endX, double endY, Color borderColor)
     {
-        super(new double[]{startX, startY, endX - 20.0, endY, endX + 20.0, endY});
+        super(new double[]{startX, startY, endX - 50.0, endY, endX + 50.0, endY});
 
         setFill(borderColor);
         setStrokeType(StrokeType.INSIDE);
@@ -40,9 +40,9 @@ public class MyTriangle extends Polygon implements IMyShape
 
     @Override
     public void setSecondParameter(Point point) {
-        getPoints().set(2, point.getX() - 20.0);
+        getPoints().set(2, point.getX() - 50.0);
         getPoints().set(3, point.getY());
-        getPoints().set(4, point.getX() + 20.0);
+        getPoints().set(4, point.getX() + 50.0);
         getPoints().set(5, point.getY());
     }
 
