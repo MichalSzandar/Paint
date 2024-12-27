@@ -41,7 +41,7 @@ public class DrawShapeState extends PaneState{
             {
                 shape = builder.generateShape(canvas.getActiveColor());
                 MyLogger.logger.log(Level.INFO, "new shape added to the scene");
-                canvas.getChildren().add(shape);
+                canvas.addElement(shape);
                 exitState(canvas);
     
             }catch(IndexOutOfBoundsException ex)

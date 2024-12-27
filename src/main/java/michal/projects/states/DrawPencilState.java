@@ -30,7 +30,7 @@ public class DrawPencilState extends PaneState{
 
         MoveTo moveTo = new MoveTo(e.getX(), e.getY());
         currentPath.getElements().add(moveTo);
-        canvas.getChildren().add(currentPath);
+        canvas.addElement(currentPath);
     }
 
     @Override

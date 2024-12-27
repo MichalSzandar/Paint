@@ -2,6 +2,7 @@ package michal.projects.gui;
 import java.io.File;
 import java.util.logging.Level;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -37,6 +38,8 @@ public class GUI
         Image highlighterImg = new Image(getClass().getResource("/highlighter.png").toExternalForm());
         Image sprayImg = new Image(getClass().getResource("/spray.png").toExternalForm());
         Image handImg = new Image(getClass().getResource("/hand.png").toExternalForm());
+        Image undoImg  = new Image(getClass().getResource("/undo.png").toExternalForm());
+        Image redoImg = new Image(getClass().getResource("/redo.png").toExternalForm());
 
         PaintPane canvas = new PaintPane();
 
@@ -64,6 +67,14 @@ public class GUI
 
         ShapeButton handButton = new ShapeButton(canvas, new DefaultState(canvas));
         handButton.setGraphic(createImageView(handImg));
+
+        Button undoButton = new Button();
+        undoButton.setGraphic(createImageView(undoImg));
+        undoButton.setOnAction(event -> canvas.undo());
+
+        Button redoButton = new Button();
+        redoButton.setGraphic(createImageView(redoImg));
+        redoButton.setOnAction(event -> canvas.redo());
 
         FileChooser fileChooser = new FileChooser();
 
@@ -113,7 +124,7 @@ public class GUI
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(menu1, menu2);
 
-        ToolBar toolBar = new ToolBar(circleButton, rectangleButton, triangleButton, handButton, pencilButton, highlighterButton, sprayButton, colorPicker, radiusControl);
+        ToolBar toolBar = new ToolBar(circleButton, rectangleButton, triangleButton, handButton, pencilButton, highlighterButton, sprayButton, colorPicker, radiusControl, undoButton, redoButton);
         VBox root = new VBox(menuBar, toolBar,canvas);
         Scene scene = new Scene(root);
         

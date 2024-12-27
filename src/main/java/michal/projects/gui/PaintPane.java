@@ -1,5 +1,8 @@
 package michal.projects.gui;
 
+import java.util.Stack;
+
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -14,6 +17,9 @@ public class PaintPane extends Pane
     private PaneState state;
     private double currentBrushSize = 5;
 
+    private Stack<Node> recentlyAddedNodes;
+    private Stack<Node> recentlyDeletedNodes;
+
     public PaintPane()
     {
         super();
@@ -27,6 +33,9 @@ public class PaintPane extends Pane
         activeColor = Color.BLACK;
         state = new DefaultState(this);
         state.setMouseEvents();
+
+        recentlyAddedNodes = new Stack<>();
+        recentlyDeletedNodes = new Stack<>();
     }
 
     public Color getActiveColor()
@@ -50,5 +59,27 @@ public class PaintPane extends Pane
     public void setState(PaneState state){
         this.state = state;
         state.setMouseEvents();
+    }
+
+    public void addElement(Node node){
+        getChildren().add(node);
+        recentlyAddedNodes.push(node);
+    }
+
+    public void removeElement(Node node){
+        getChildren().remove(node);
+        recentlyDeletedNodes.push(node);
+    }
+
+    public void undo(){
+        Node last = recentlyAddedNodes.pop();
+        getChildren().remove(last);
+        recentlyDeletedNodes.push(last);
+    }
+
+    public void redo(){
+        Node last = recentlyDeletedNodes.pop();
+        getChildren().add(last);
+        recentlyAddedNodes.push(last);
     }
 }

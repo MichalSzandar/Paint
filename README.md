@@ -11,6 +11,7 @@ after creating a shape you can click on it to set it active. When a shape is act
 1. push down your left mouse button and drag your mouse to move the shape.
 2. push down your right mouse button and drag your mouse horizontally to rotate the shape.
 3. click on the shape with your left mouse nutton while holding ctrl to change the color of the shape to the currently selected color
+4. use scroll to change size of the shape
 
 ## Author
 Michał Szandarowski
