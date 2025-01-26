@@ -15,12 +15,12 @@ public class CircleTest {
     private MyCircle circle;
 
     @Before
-    public void setup(){
+    public void setup() {
         circle = new MyCircle(0, 0, 0, Color.BLACK);
     }
 
     @Test
-    public void testMoveShape(){
+    public void testMoveShape() {
         circle.moveShape(new Point(5, 5));
 
         assertEquals(5.0, circle.getCenterX(), 0);
@@ -28,14 +28,14 @@ public class CircleTest {
     }
 
     @Test
-    public void testSetSecondParameter(){
+    public void testSetSecondParameter() {
         circle.setSecondParameter(new Point(5, 0));
 
         assertEquals(5.0, circle.getRadius(), 0);
     }
 
     @Test
-    public void testSetParameters(){
+    public void testSetParameters() {
         ArrayList<Point> points = new ArrayList<>();
         points.add(new Point(1, 1));
         points.add(new Point(1, 3));

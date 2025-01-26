@@ -18,13 +18,12 @@ public class ShapeMap {
     }
 
     @SuppressWarnings("exports")
-    public ShapeBuilder getValue(String key)
-    {
+    public final ShapeBuilder getValue(final String key) {
         return shapeMap.get(key);
     }
 
     @SuppressWarnings("exports")
-    public void addSet(String type, ShapeBuilder builder)
+    public final void addSet(final String type, final ShapeBuilder builder)
     {
         shapeMap.put(type, builder);
     }

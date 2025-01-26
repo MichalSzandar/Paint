@@ -20,7 +20,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void testMoveShape(){
+    public void testMoveShape() {
         triangle.moveShape(new Point(5, 5));
 
         assertEquals(5.0, triangle.getPoints().get(0), 0);
@@ -28,14 +28,14 @@ public class TriangleTest {
     }
 
     @Test
-    public void testSetSecondParameter(){
+    public void testSetSecondParameter() {
         triangle.setSecondParameter(new Point(5, 0));
 
         assertEquals(5.0, triangle.getPoints().get(2) + 50, 0);
     }
 
     @Test
-    public void testSetParameters(){
+    public void testSetParameters() {
         ArrayList<Point> points = new ArrayList<>();
         points.add(new Point(1, 1));
         points.add(new Point(1, 3));

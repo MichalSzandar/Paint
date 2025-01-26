@@ -18,77 +18,81 @@ public class DefaultState extends PaneState {
     private double difY;
     private double startRotation;
 
-    public DefaultState(PaintPane pane) {
+    public DefaultState(final PaintPane pane) {
         super(pane);
     }
+
     /**
-     * if user clicked on shape it sets the shape to active and all other shapes on scene to disabled
+     * if user clicked on shape it sets the shape to
+     * active and all other shapes on
+     * scene to disabled.
      */
     @Override
-    protected void onMouseClicked(MouseEvent e)
-    {
-        if(e.getButton().equals(MouseButton.PRIMARY)){
+    protected void onMouseClicked(final MouseEvent e) {
+        if (e.getButton().equals(MouseButton.PRIMARY)) {
             Node object = e.getPickResult().getIntersectedNode();
-        
-            for (Node node : canvas.getChildrenUnmodifiable()) 
-                if(node instanceof IMyShape)
-                    ((IMyShape)node).setDisabled();
-            
-            if(object instanceof IMyShape && object instanceof Shape){
-                ((IMyShape)object).setActive();
-                shape = (IMyShape)object;
+
+            for (Node node : canvas.getChildrenUnmodifiable()) {
+                if (node instanceof IMyShape) {
+                    ((IMyShape) node).setDisabled();
+                }
             }
-        } else if(e.getButton().equals(MouseButton.SECONDARY) && e.isControlDown() &&shape != null && shape.isActive()){
-            ((Shape)shape).setFill(canvas.getActiveColor());
+
+            if (object instanceof IMyShape && object instanceof Shape) {
+                ((IMyShape) object).setActive();
+                shape = (IMyShape) object;
+            }
+        } else if (e.getButton().equals(MouseButton.SECONDARY)
+                    && e.isControlDown() && shape != null
+                    && shape.isActive()) {
+            ((Shape) shape).setFill(canvas.getActiveColor());
         }
-        
-                
+
     }
 
     @Override
-    protected void onMousePressed(MouseEvent e) {
-        if(shape == null || !shape.isActive()){
+    protected final void onMousePressed(final MouseEvent e) {
+        if (shape == null || !shape.isActive()) {
             return;
         }
 
         difX = e.getSceneX() - shape.getVertices().get(0).getX();
         difY = e.getSceneY() - shape.getVertices().get(0).getY();
-        startRotation = ((Shape)shape).getRotate();
+        startRotation = ((Shape) shape).getRotate();
         MyLogger.logger.log(Level.INFO, "mouse pressed");
     }
 
     @Override
-    protected void onMouseDragged(MouseEvent e) {
-        if(shape == null || !shape.isActive()){
+    protected final void onMouseDragged(final MouseEvent e) {
+        if (shape == null || !shape.isActive()) {
             return;
         }
 
-        if(e.getButton() == MouseButton.PRIMARY)
-        {
-            shape.moveShape(new Point(e.getSceneX()-difX, e.getSceneY()-difY));
-        }
-        else if(e.getButton() == MouseButton.SECONDARY)
-        {
-            ((Shape)shape).setRotate((startRotation + e.getSceneX()- shape.getVertices().get(0).getX() - difX)%360);
+        if (e.getButton() == MouseButton.PRIMARY) {
+            shape.moveShape(
+                new Point(e.getSceneX() - difX, e.getSceneY() - difY));
+        } else if (e.getButton() == MouseButton.SECONDARY) {
+            ((Shape) shape).setRotate((startRotation + e.getSceneX() - shape.getVertices().get(0).getX() - difX) % 360);
         }
     }
 
     @Override
-    protected void onMouseMoved(MouseEvent e) {
+    protected final void onMouseMoved(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onMouseExited(MouseEvent e) {
+    protected final void onMouseExited(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onScroll(ScrollEvent e) {
+    protected final void onScroll(final ScrollEvent e) {
         double zoomfactor = 1.05;
         double deltaY = e.getDeltaY();
-        if(deltaY<0)
+        if (deltaY < 0) {
             zoomfactor = 1.8 - zoomfactor;
+        }
         Shape shape = (Shape)this.shape;
         shape.setScaleX(shape.getScaleX()*zoomfactor);
         shape.setScaleY(shape.getScaleY()*zoomfactor);

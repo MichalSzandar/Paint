@@ -11,18 +11,18 @@ public class DrawPencilState extends PaneState {
     private Path currentPath;
     private double opacity;
 
-    public DrawPencilState(PaintPane canvas, double opacity) {
+    public DrawPencilState(final PaintPane canvas, final double opacity) {
         super(canvas);
-        this.opacity = opacity; 
+        this.opacity = opacity;
     }
 
     @Override
-    protected void onMouseClicked(MouseEvent e) {
+    protected final void onMouseClicked(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onMousePressed(MouseEvent e) {
+    protected final void onMousePressed(final MouseEvent e) {
         currentPath = new Path();
         currentPath.setStrokeWidth(canvas.getCurrentBrushSize());
         currentPath.setOpacity(opacity);
@@ -34,7 +34,7 @@ public class DrawPencilState extends PaneState {
     }
 
     @Override
-    protected void onMouseDragged(MouseEvent e) {
+    protected final void onMouseDragged(final MouseEvent e) {
         if (currentPath != null) {
             LineTo lineTo = new LineTo(e.getX(), e.getY());
             currentPath.getElements().add(lineTo);
@@ -42,18 +42,17 @@ public class DrawPencilState extends PaneState {
     }
 
     @Override
-    protected void onMouseMoved(MouseEvent e) {
+    protected final void onMouseMoved(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onMouseExited(MouseEvent e) {
+    protected final void onMouseExited(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onScroll(ScrollEvent e) {
+    protected final void onScroll(final ScrollEvent e) {
         return;
     }
-    
 }

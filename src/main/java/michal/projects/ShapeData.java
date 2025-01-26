@@ -11,8 +11,8 @@ public class ShapeData implements Serializable {
     private double scaleX;
     private double scaleY;
     
-    public ShapeData(ArrayList<Point> parameters, String color, double angle, String type, double scaleX, double scaleY)
-    {
+    public ShapeData(final ArrayList<Point> parameters, final String color, final double angle, final String type,
+            final double scaleX, final double scaleY) {
         this.parameters = parameters;
         this.fill = color;
         this.angle = angle;
@@ -21,10 +21,27 @@ public class ShapeData implements Serializable {
         this.scaleY = scaleY;
     }
 
-    public ArrayList<Point> getParameters(){return parameters;}
-    public String getFill(){return fill;}
-    public double getAngle(){return angle;}
-    public String getType(){return type;}
-    public double getScaleX(){return scaleX;}
-    public double getScaleY(){return scaleY;}
+    public final ArrayList<Point> getParameters() {
+        return parameters;
+    }
+
+    public final String getFill() {
+        return fill;
+    }
+
+    public final double getAngle() {
+        return angle;
+    }
+
+    public final String getType() {
+        return type;
+    }
+
+    public final double getScaleX() {
+        return scaleX;
+    }
+
+    public final double getScaleY() {
+        return scaleY;
+    }
 }

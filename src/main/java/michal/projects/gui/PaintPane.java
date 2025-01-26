@@ -10,7 +10,7 @@ import michal.projects.ShapeMap;
 import michal.projects.states.DefaultState;
 import michal.projects.states.PaneState;
 
-public class PaintPane extends Pane 
+public class PaintPane extends Pane
 {
     private Color activeColor;
     public  ShapeMap shapeMap;
@@ -37,44 +37,44 @@ public class PaintPane extends Pane
         recentlyDeletedNodes = new Stack<>();
     }
 
-    public Color getActiveColor() {
+    public final Color getActiveColor() {
         return activeColor;
     }
 
-    public void setActiveColor(Color color) {
+    public final void setActiveColor(final Color color) {
         activeColor = color;
     }
 
-    public double getCurrentBrushSize() {
+    public final double getCurrentBrushSize() {
         return currentBrushSize;
     }
 
-    public void setBrushSize(double size) {
+    public final void setBrushSize(final double size) {
         currentBrushSize = size;
     }
 
-    public void setState(PaneState state) {
+    public final void setState(final PaneState state) {
         this.state = state;
         state.setMouseEvents();
     }
 
-    public void addElement(Node node) {
+    public final void addElement(final Node node) {
         getChildren().add(node);
         recentlyAddedNodes.push(node);
     }
 
-    public void removeElement(Node node) {
+    public final void removeElement(final Node node) {
         getChildren().remove(node);
         recentlyDeletedNodes.push(node);
     }
 
-    public void undo() {
+    public final void undo() {
         Node last = recentlyAddedNodes.pop();
         getChildren().remove(last);
         recentlyDeletedNodes.push(last);
     }
 
-    public void redo() {
+    public final void redo() {
         Node last = recentlyDeletedNodes.pop();
         getChildren().add(last);
         recentlyAddedNodes.push(last);

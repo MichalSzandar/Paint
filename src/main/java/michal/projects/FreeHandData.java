@@ -9,15 +9,27 @@ public class FreeHandData implements Serializable{
     private final double strokeWidth;
     private final double opacity;
 
-    public FreeHandData(ArrayList<Double> points, String color, double strokeWidth, double opacity){
+    public FreeHandData(final ArrayList<Double> points, final String color, final double strokeWidth,
+            final double opacity) {
         this.points = points;
         this.color = color;
         this.strokeWidth = strokeWidth;
         this.opacity = opacity;
     }
 
-    public ArrayList<Double> getPoints(){return points;}
-    public String getColor(){return color;}
-    public double getStrokeWidth(){return strokeWidth;}
-    public double getOpacity(){return opacity;}
+    public final ArrayList<Double> getPoints() {
+        return points;
+    }
+
+    public final String getColor() {
+        return color;
+    }
+
+    public final double getStrokeWidth() {
+        return strokeWidth;
+    }
+
+    public final double getOpacity() {
+        return opacity;
+    }
 }

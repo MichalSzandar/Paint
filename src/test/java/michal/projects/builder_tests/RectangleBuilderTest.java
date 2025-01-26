@@ -12,7 +12,7 @@ import michal.projects.shapes.MyRectangle;
 
 public class RectangleBuilderTest {
      private RectangleBuilder builder;
-    
+
     @Before
     public void setup() {
         builder = new RectangleBuilder(); 
@@ -37,5 +37,5 @@ public class RectangleBuilderTest {
         assertEquals(0, preview.getX(), 0);
         assertEquals(0, preview.getY(), 0);
         assertEquals(0, preview.getWidth(), 0);
-    }   
+    }
 }

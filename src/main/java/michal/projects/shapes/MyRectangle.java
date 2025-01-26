@@ -15,7 +15,17 @@ public class MyRectangle extends Rectangle implements IMyShape {
     private double initialY;
     private boolean isActive;
 
-    public MyRectangle(double startX, double startY, double width, double height, Color borderColor) {
+    /**
+     * initializes MyRectangle object with given parameters.
+     * @param startX - Upper-left point X
+     * @param startY - Upper-left point Y
+     * @param width
+     * @param height
+     * @param borderColor
+     */
+    public MyRectangle(final double startX, final double startY,
+                    final double width, final double height,
+            final Color borderColor) {
         super(startX, startY, width, height);
         initialX = getX();
         initialY = getY();
@@ -29,7 +39,7 @@ public class MyRectangle extends Rectangle implements IMyShape {
     }
 
     @Override
-    public void moveShape(Point point) {
+    public final void moveShape(final Point point) {
         setX(point.getX());
         setY(point.getY());
         initialX = getX();
@@ -37,27 +47,29 @@ public class MyRectangle extends Rectangle implements IMyShape {
     }
 
     @Override
-    public void setSecondParameter(Point point) {
+    public final void setSecondParameter(final Point point) {
         double width = point.getX() - initialX;
         double height = point.getY() - initialY;
 
         setWidth(Math.abs(width));
         setHeight(Math.abs(height));
 
-        if(width < 0)
+        if (width < 0) {
             setX(point.getX());
-        if(height < 0)
+        }
+        if (height < 0) {
             setY(point.getY());
+        }
     }
 
     @Override
-    public void setParameters(ArrayList<Point> points) {
+    public final void setParameters(final ArrayList<Point> points) {
         moveShape(points.get(0));
         setSecondParameter(points.get(1));
     }
 
     @Override
-    public void setActive() {
+    public final void setActive() {
         setStroke(Utils.invertColor(getFill()));
         isActive = true;
 
@@ -65,7 +77,7 @@ public class MyRectangle extends Rectangle implements IMyShape {
     }
 
     @Override
-    public void setDisabled() {
+    public final void setDisabled() {
         setStroke(Color.TRANSPARENT);
         isActive = false;
 
@@ -73,12 +85,12 @@ public class MyRectangle extends Rectangle implements IMyShape {
     }
 
     @Override
-    public String getType() {
+    public final String getType() {
         return "Rectangle";
     }
 
     @Override
-    public ArrayList<Point> getVertices() {
+    public final ArrayList<Point> getVertices() {
         ArrayList<Point> params = new ArrayList<>();
         params.add(new Point(getX(), getY()));
         params.add(new Point(getX() + getWidth(), getY() + getHeight()));
@@ -86,7 +98,7 @@ public class MyRectangle extends Rectangle implements IMyShape {
     }
 
     @Override
-    public boolean isActive() {
+    public final boolean isActive() {
         return isActive;
     }
 }

@@ -11,42 +11,42 @@ public class DrawSprayState extends PaneState {
     private Random random;
     private int sprayDensity;
     
-    public DrawSprayState(PaintPane canvas) {
+    public DrawSprayState(final PaintPane canvas) {
         super(canvas);
         random = new Random();
         sprayDensity = 30;
     }
 
     @Override
-    protected void onMouseClicked(MouseEvent e) {
+    protected final void onMouseClicked(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onMousePressed(MouseEvent e) {
+    protected final void onMousePressed(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onMouseDragged(MouseEvent e) {
+    protected final void onMouseDragged(final MouseEvent e) {
         spray(e.getX(), e.getY());
     }
 
     @Override
-    protected void onMouseMoved(MouseEvent e) {
+    protected final void onMouseMoved(final MouseEvent e) {
         return;
     }
 
     @Override
-    protected void onMouseExited(MouseEvent e) {
+    protected final void onMouseExited(final MouseEvent e) {
         return;
     }
-    
-    private void spray(double x, double y) {
+
+    private void spray(final double x, final double y) {
         for (int i = 0; i < sprayDensity; i++) {
             // Generate random angle and distance for each dot
-            double angle = random.nextDouble() * 2 * Math.PI; 
-            double distance = random.nextDouble() * canvas.getCurrentBrushSize(); 
+            double angle = random.nextDouble() * 2 * Math.PI;
+            double distance = random.nextDouble() * canvas.getCurrentBrushSize();
 
             // Calculate the coordinates of the dot
             double dx = x + distance * Math.cos(angle);
@@ -59,7 +59,7 @@ public class DrawSprayState extends PaneState {
     }
 
     @Override
-    protected void onScroll(ScrollEvent e) {
+    protected final void onScroll(final ScrollEvent e) {
         return;
     }
 }

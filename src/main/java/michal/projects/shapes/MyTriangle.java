@@ -11,11 +11,22 @@ import michal.projects.Point;
 import michal.projects.Utils;
 
 public class MyTriangle extends Polygon implements IMyShape {
-    private double difX, difY;
+    private double difX;
+    private double difY;
     private boolean isActive;
 
-    public MyTriangle(double startX, double startY, double endX, double endY, Color borderColor) {
-        super(new double[]{startX, startY, endX - 50.0, endY, endX + 50.0, endY});
+    /**
+     * initializes MyTriangle object with given parameters.
+     * @param startX - Upper point X
+     * @param startY - upper point Y
+     * @param endX - Middle point of bottom X
+     * @param endY - Middle point of bottom Y
+     * @param borderColor
+     */
+    public MyTriangle(final double startX, final double startY,
+                        final double endX, final double endY,
+            final Color borderColor) {
+        super(new double[] { startX, startY, endX - 50.0, endY, endX + 50.0, endY });
 
         setFill(borderColor);
         setStrokeType(StrokeType.INSIDE);
@@ -25,7 +36,7 @@ public class MyTriangle extends Polygon implements IMyShape {
     }
 
     @Override
-    public void moveShape(Point point) {
+    public final void moveShape(final Point point) {
         difX = getPoints().get(0) - point.getX();
         difY = getPoints().get(1) - point.getY();
         getPoints().set(0, getPoints().get(0) - difX);
@@ -37,7 +48,7 @@ public class MyTriangle extends Polygon implements IMyShape {
     }
 
     @Override
-    public void setSecondParameter(Point point) {
+    public final void setSecondParameter(final Point point) {
         getPoints().set(2, point.getX() - 50.0);
         getPoints().set(3, point.getY());
         getPoints().set(4, point.getX() + 50.0);
@@ -45,13 +56,13 @@ public class MyTriangle extends Polygon implements IMyShape {
     }
 
     @Override
-    public void setParameters(ArrayList<Point> points) {
+    public final void setParameters(final ArrayList<Point> points) {
         moveShape(points.get(0));
         setSecondParameter(points.get(1));
     }
 
     @Override
-    public void setActive() {
+    public final void setActive() {
         setStroke(Utils.invertColor(getFill()));
         isActive = true;
 
@@ -59,7 +70,7 @@ public class MyTriangle extends Polygon implements IMyShape {
     }
 
     @Override
-    public void setDisabled() {
+    public final void setDisabled() {
         setStroke(Color.TRANSPARENT);
         isActive = false;
 
@@ -67,20 +78,21 @@ public class MyTriangle extends Polygon implements IMyShape {
     }
 
     @Override
-    public String getType() {
+    public final String getType() {
         return "Triangle";
     }
 
     @Override
-    public ArrayList<Point> getVertices() {
+    public final ArrayList<Point> getVertices() {
         ArrayList<Point> params = new ArrayList<>();
         params.add(new Point(getPoints().get(0), getPoints().get(1)));
-        params.add(new Point((getPoints().get(2) + getPoints().get(4))/2.0, (getPoints().get(3) + getPoints().get(5))/2.0));
+        params.add(new Point((getPoints().get(2) + getPoints().get(4)) / 2.0,
+                (getPoints().get(3) + getPoints().get(5)) / 2.0));
         return params;
     }
 
     @Override
-    public boolean isActive() {
+    public final boolean isActive() {
         return isActive;
     }
 

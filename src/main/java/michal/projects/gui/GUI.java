@@ -27,21 +27,33 @@ import michal.projects.states.DrawShapeState;
 import michal.projects.states.DrawSprayState;
 
 /**
- * class responsible for setting up main stage
+ * class responsible for setting up main stage.
  */
 public class GUI {
-    public GUI(Stage stage) {
+    /**sets up main stage.
+     * @param stage
+     */
+    public GUI(final Stage stage) {
 
-        //importing icons
-        Image circleImg = new Image(getClass().getResource("/circle.png").toExternalForm());
-        Image rectImg = new Image(getClass().getResource("/rectangle.png").toExternalForm());
-        Image triangleImg = new Image(getClass().getResource("/triangle.png").toExternalForm());
-        Image pencilImg = new Image(getClass().getResource("/default_brush.png").toExternalForm());
-        Image highlighterImg = new Image(getClass().getResource("/highlighter.png").toExternalForm());
-        Image sprayImg = new Image(getClass().getResource("/spray.png").toExternalForm());
-        Image handImg = new Image(getClass().getResource("/hand.png").toExternalForm());
-        Image undoImg  = new Image(getClass().getResource("/undo.png").toExternalForm());
-        Image redoImg = new Image(getClass().getResource("/redo.png").toExternalForm());
+        // importing icons
+        Image circleImg = new Image(getClass()
+            .getResource("/circle.png").toExternalForm());
+        Image rectImg = new Image(getClass()
+            .getResource("/rectangle.png").toExternalForm());
+        Image triangleImg = new Image(getClass()
+            .getResource("/triangle.png").toExternalForm());
+        Image pencilImg = new Image(getClass()
+            .getResource("/default_brush.png").toExternalForm());
+        Image highlighterImg = new Image(getClass()
+            .getResource("/highlighter.png").toExternalForm());
+        Image sprayImg = new Image(getClass()
+            .getResource("/spray.png").toExternalForm());
+        Image handImg = new Image(getClass()
+            .getResource("/hand.png").toExternalForm());
+        Image undoImg = new Image(getClass()
+            .getResource("/undo.png").toExternalForm());
+        Image redoImg = new Image(getClass()
+            .getResource("/redo.png").toExternalForm());
 
         PaintPane canvas = new PaintPane();
 
@@ -84,24 +96,30 @@ public class GUI {
         save.setOnAction(event -> {
             fileChooser.setTitle("save shapes");
             File file = fileChooser.showSaveDialog(stage);
-            if(file!=null)
+            if (file != null) {
                 Serializer.serializeShapesFromCanvas(canvas, file.getAbsolutePath());
+            }
         });
 
         MenuItem open = new MenuItem("open");
         open.setOnAction(event -> {
-            canvas.getChildren().clear(); 
+            canvas.getChildren().clear();
             fileChooser.setTitle("open shapes");
             File file = fileChooser.showOpenDialog(stage);
-            if(file!=null)
+            if (file != null) {
                 Serializer.desrializeShapes(canvas, file.getAbsolutePath());
+            }
         });
 
         MenuItem about = new MenuItem("about");
-        about.setOnAction(event -> {MyAlerts.displayInfo();});
+        about.setOnAction(event -> {
+            MyAlerts.displayInfo();
+        });
 
         MenuItem controls = new MenuItem("controls");
-        controls.setOnAction(event -> {MyAlerts.displayControls();});
+        controls.setOnAction(event -> {
+            MyAlerts.displayControls();
+        });
 
         ColorPicker colorPicker = new ColorPicker(Color.BLACK);
         colorPicker.setOnAction(event -> {
@@ -116,7 +134,7 @@ public class GUI {
         radiusSlider.setShowTickMarks(true);
 
         VBox radiusControl = new VBox(5, radiusLabel, radiusSlider);
-    
+
         final Menu menu1 = new Menu("File");
         menu1.getItems().addAll(open, save);
 
@@ -140,21 +158,20 @@ public class GUI {
         toolBar.addButton(redoButton);
         toolBar.requestLayout();
 
-        VBox root = new VBox(menuBar, toolBar,canvas);
+        VBox root = new VBox(menuBar, toolBar, canvas);
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.setTitle("Paint");
         stage.show();
         MyLogger.logger.log(Level.INFO, "Scene has been inited");
     }
 
-    private ImageView createImageView(Image img){
+    private ImageView createImageView(final Image img) {
         ImageView view = new ImageView();
         view.setFitHeight(25);
         view.setFitWidth(25);
         view.setImage(img);
         return view;
     }
-    
 }

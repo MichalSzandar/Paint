@@ -11,10 +11,10 @@ import michal.projects.shapes.MyCircle;
 
 public class CircleBuilderTest {
     private CircleBuilder builder;
-    
+
     @Before
     public void setup() {
-        builder = new CircleBuilder(); 
+        builder = new CircleBuilder();
     }
 
     @Test
@@ -22,7 +22,7 @@ public class CircleBuilderTest {
         builder.addPoint(new Point(0, 0));
         builder.addPoint(new Point(5, 0));
 
-        MyCircle circle = (MyCircle)builder.generateShape(Color.BLACK);
+        MyCircle circle = (MyCircle) builder.generateShape(Color.BLACK);
         assertEquals(0, circle.getCenterX(), 0);
         assertEquals(0, circle.getCenterY(), 0);
         assertEquals(5, circle.getRadius(), 0);
@@ -31,10 +31,10 @@ public class CircleBuilderTest {
     @Test
     public void testGetShapePreview() {
         builder.addPoint(new Point(0, 0));
-        MyCircle preview = (MyCircle)builder.getPreview();
+        MyCircle preview = (MyCircle) builder.getPreview();
 
         assertEquals(0, preview.getCenterX(), 0);
         assertEquals(0, preview.getCenterY(), 0);
         assertEquals(0, preview.getRadius(), 0);
-    }   
+    }
 }

@@ -6,52 +6,58 @@ import javafx.scene.shape.Shape;
 import michal.projects.Point;
 
 public abstract class ShapeBuilder {
+    /**list of points for shape.*/
     protected ArrayList<Point> points;
 
+    /**
+     * initializes ShapeBuilder.
+     */
     public ShapeBuilder() {
         points = new ArrayList<Point>();
     }
 
     /**
-     * adds point to list of points
+     * adds point to list of points.
      * @param p - point to add
      */
-    public void addPoint(Point p) {
+    public void addPoint(final Point p) {
         points.add(p);
     }
-    
+
     /**
-     * removes all point from the list
+     * removes all point from the list.
      */
     public void clearPoints() {
         points.clear();
     }
 
     /**
-     * @return number of points in the list
+     * @return number of points in the list.
      */
     public int getNumberOfPoints() {
         return points.size();
     }
 
     /**
-     * sets the list of points to the list passed as argument
+     * sets the list of points to the list passed as argument.
+     * 
      * @param points
      */
-    public void loadPointsFromList(ArrayList<Point> points) {
+    public void loadPointsFromList(final ArrayList<Point> points) {
         this.points = points;
     }
 
     /**
-     * generates shape from points gathered in the builder
+     * generates shape from points gathered in the builder.
      * @param color color assigned to new shape
      * @return Shape object generated from given points
      */
     public abstract Shape generateShape(Color color);
 
     /**
-     * creates a preview of what a shape will look like if we add another point
-     * @return uncomplete shape, because of lack of paramters needed to create full shape
+     * creates a preview of what a shape will look like if we add another point.
+     * @return uncomplete shape, because of lack of
+     * paramters needed to create full shape
      */
     public abstract Shape getPreview();
 }

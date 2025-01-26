@@ -6,18 +6,31 @@ import michal.projects.shapes.MyTriangle;
 public class TriangleBuilder extends ShapeBuilder {
 
     @Override
-    public Shape generateShape(Color color) {
-        if(points.size()!=2)
-            throw new IndexOutOfBoundsException("not enough points to create full Triangle, only preview available");
-        
-        return new MyTriangle(points.get(0).getX(), points.get(0).getY(), points.get(1).getX(), points.get(1).getY(), color);
+    public final Shape generateShape(final Color color) {
+        if (points.size() != 2) {
+            throw new IndexOutOfBoundsException(
+                "not enough points to create full Triangle, only preview available");
+        }
+
+        return new MyTriangle(
+            points.get(0).getX(),
+            points.get(0).getY(),
+            points.get(1).getX(),
+            points.get(1).getY(),
+            color);
     }
 
     @Override
-    public Shape getPreview() {
-        if(points.size()!=1)
-            throw new IndexOutOfBoundsException("you need at least one point to create preview");
+    public final Shape getPreview() {
+        if (points.size() != 1) {
+            throw new IndexOutOfBoundsException(
+                "you need at least one point to create preview");
+        }
 
-        return new MyTriangle(points.get(0).getX(), points.get(0).getY(), points.get(0).getX(), points.get(0).getY(), Color.GRAY);
+        return new MyTriangle(points.get(0).getX(),
+        points.get(0).getY(),
+        points.get(0).getX(),
+        points.get(0).getY(),
+        Color.GRAY);
     }
 }

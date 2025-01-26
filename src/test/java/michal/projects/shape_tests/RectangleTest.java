@@ -15,12 +15,12 @@ public class RectangleTest {
      private MyRectangle rectangle;
 
     @Before
-    public void setup(){
+    public void setup() {
         rectangle = new MyRectangle(0, 0, 0, 0, Color.BLACK);
     }
 
     @Test
-    public void testMoveShape(){
+    public void testMoveShape() {
         rectangle.moveShape(new Point(5, 5));
 
         assertEquals(5.0, rectangle.getX(), 0);
@@ -28,14 +28,14 @@ public class RectangleTest {
     }
 
     @Test
-    public void testSetSecondParameter(){
+    public void testSetSecondParameter() {
         rectangle.setSecondParameter(new Point(5, 0));
 
         assertEquals(5.0, rectangle.getWidth(), 0);
     }
 
     @Test
-    public void testSetParameters(){
+    public void testSetParameters() {
         ArrayList<Point> points = new ArrayList<>();
         points.add(new Point(1, 1));
         points.add(new Point(1, 3));

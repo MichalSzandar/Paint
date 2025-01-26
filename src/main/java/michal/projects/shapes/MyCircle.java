@@ -10,18 +10,19 @@ import michal.projects.Point;
 import michal.projects.Utils;
 
 public class MyCircle extends Circle implements IMyShape {
+    /**defines wether shape is set asactive or not. */
     private boolean isActive;
-    
     /**
-     * @brief creates MyCircle object based on center point, radius, color
+     * initializes MyCircle object based on center point, radius, color.
      * @param centerX x coordinate of circle's center
      * @param centerY y coordinate of circle's center
      * @param radius radius of circle
      * @param color color of shape
      */
-    public MyCircle(double centerX, double centerY, double radius, Color color) {
+    public MyCircle(final double centerX, final double centerY,
+                    final double radius, final Color color) {
         super(centerX, centerY, radius);
-        
+
         setFill(color);
         setStrokeType(StrokeType.INSIDE);
         setStrokeWidth(4);
@@ -31,18 +32,18 @@ public class MyCircle extends Circle implements IMyShape {
     }
 
     @Override
-    public void moveShape(Point point) {
-       setCenterX(point.getX());
-       setCenterY(point.getY());
+    public final void moveShape(final Point point) {
+        setCenterX(point.getX());
+        setCenterY(point.getY());
     }
 
     @Override
-    public void setSecondParameter(Point point) {
+    public final void setSecondParameter(final Point point) {
         setRadius(Utils.distance(point, new Point(getCenterX(), getCenterY())));
     }
 
     @Override
-    public void setActive() {
+    public final void setActive() {
         setStroke(Utils.invertColor(getFill()));
         isActive = true;
 
@@ -50,7 +51,7 @@ public class MyCircle extends Circle implements IMyShape {
     }
 
     @Override
-    public void setDisabled() {
+    public final void setDisabled() {
         setStroke(Color.TRANSPARENT);
         isActive = false;
 
@@ -58,12 +59,12 @@ public class MyCircle extends Circle implements IMyShape {
     }
 
     @Override
-    public String getType() {
-       return "Circle";
+    public final String getType() {
+        return "Circle";
     }
 
     @Override
-    public ArrayList<Point> getVertices() {
+    public final ArrayList<Point> getVertices() {
         ArrayList<Point> params = new ArrayList<>();
         params.add(new Point(getCenterX(), getCenterY()));
         params.add(new Point(getCenterX(), getCenterY() + getRadius()));
@@ -71,13 +72,13 @@ public class MyCircle extends Circle implements IMyShape {
     }
 
     @Override
-    public void setParameters(ArrayList<Point> points) {
+    public final void setParameters(final ArrayList<Point> points) {
         moveShape(points.get(0));
         setSecondParameter(points.get(1));
     }
 
     @Override
-    public boolean isActive() {
+    public final boolean isActive() {
         return isActive;
     }
 
