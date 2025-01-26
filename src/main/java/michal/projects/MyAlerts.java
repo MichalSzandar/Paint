@@ -3,8 +3,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public final class MyAlerts {
-    public static void displayInfo()
-    {
+    public static void displayInfo() {
         Alert info = new Alert(AlertType.INFORMATION);
         info.setHeight(500);
         info.setWidth(300);
@@ -14,8 +13,7 @@ public final class MyAlerts {
         info.showAndWait();
     }
 
-    public static void displayControls()
-    {
+    public static void displayControls() {
         Alert controls = new Alert(AlertType.INFORMATION);
         controls.setHeight(500);
         controls.setWidth(300);

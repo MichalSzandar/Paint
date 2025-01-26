@@ -10,15 +10,15 @@ import michal.projects.shape_builders.CircleBuilder;
 import michal.projects.shapes.MyCircle;
 
 public class CircleBuilderTest {
-    CircleBuilder builder;
+    private CircleBuilder builder;
+    
     @Before
-    public void setup(){
-        builder = new CircleBuilder();
-        
+    public void setup() {
+        builder = new CircleBuilder(); 
     }
 
     @Test
-    public void testGenerateCircle(){
+    public void testGenerateCircle() {
         builder.addPoint(new Point(0, 0));
         builder.addPoint(new Point(5, 0));
 
@@ -29,7 +29,7 @@ public class CircleBuilderTest {
     }
 
     @Test
-    public void testGetShapePreview(){
+    public void testGetShapePreview() {
         builder.addPoint(new Point(0, 0));
         MyCircle preview = (MyCircle)builder.getPreview();
 

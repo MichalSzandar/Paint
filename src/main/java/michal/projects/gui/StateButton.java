@@ -8,13 +8,15 @@ import javafx.scene.control.Button;
 import michal.projects.MyLogger;
 import michal.projects.states.PaneState;
 
-public class ShapeButton extends Button
-{
-    public ShapeButton(PaintPane canvas, PaneState state)
-    {
+public class StateButton extends Button {
+    /**
+     * creates new StateButon object and sets PaintPane state to given PaneState
+     * @param canvas - main PaintPane on which we are drawing
+     * @param state - state that we should switch to once user clicks on the button
+     */
+    public StateButton(PaintPane canvas, PaneState state) {
         super("");
-        setOnAction(new EventHandler<ActionEvent>() 
-        {
+        setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e)
             {   

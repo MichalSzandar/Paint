@@ -5,11 +5,9 @@ import javafx.scene.shape.Shape;
 import michal.projects.Utils;
 import michal.projects.shapes.MyCircle;
 
-public class CircleBuilder extends ShapeBuilder 
-{
+public class CircleBuilder extends ShapeBuilder {
     @Override
-    public Shape generateShape(Color color) 
-    {
+    public Shape generateShape(Color color) {
         if(points.size()!=2)
             throw new IndexOutOfBoundsException("not enough points to create full Circle, only preview available");
         
@@ -17,8 +15,7 @@ public class CircleBuilder extends ShapeBuilder
     }
 
     @Override
-    public Shape getPreview() 
-    {
+    public Shape getPreview() {
         if(points.size()==1)
             return new MyCircle(points.get(0).getX(), points.get(0).getY(), 0, Color.GRAY);
         if(points.size() == 0)

@@ -5,12 +5,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import michal.projects.Point;
 
-public abstract class ShapeBuilder 
-{
+public abstract class ShapeBuilder {
     protected ArrayList<Point> points;
 
-    public ShapeBuilder()
-    {
+    public ShapeBuilder() {
         points = new ArrayList<Point>();
     }
 
@@ -18,24 +16,21 @@ public abstract class ShapeBuilder
      * adds point to list of points
      * @param p - point to add
      */
-    public void addPoint(Point p)
-    {
+    public void addPoint(Point p) {
         points.add(p);
     }
     
     /**
      * removes all point from the list
      */
-    public void clearPoints()
-    {
+    public void clearPoints() {
         points.clear();
     }
 
     /**
      * @return number of points in the list
      */
-    public int getNumberOfPoints()
-    {
+    public int getNumberOfPoints() {
         return points.size();
     }
 
@@ -43,8 +38,7 @@ public abstract class ShapeBuilder
      * sets the list of points to the list passed as argument
      * @param points
      */
-    public void loadPointsFromList(ArrayList<Point> points)
-    {
+    public void loadPointsFromList(ArrayList<Point> points) {
         this.points = points;
     }
 

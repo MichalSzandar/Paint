@@ -6,8 +6,7 @@ import michal.projects.shapes.MyTriangle;
 public class TriangleBuilder extends ShapeBuilder {
 
     @Override
-    public Shape generateShape(Color color) 
-    {
+    public Shape generateShape(Color color) {
         if(points.size()!=2)
             throw new IndexOutOfBoundsException("not enough points to create full Triangle, only preview available");
         
@@ -15,8 +14,7 @@ public class TriangleBuilder extends ShapeBuilder {
     }
 
     @Override
-    public Shape getPreview() 
-    {
+    public Shape getPreview() {
         if(points.size()!=1)
             throw new IndexOutOfBoundsException("you need at least one point to create preview");
 

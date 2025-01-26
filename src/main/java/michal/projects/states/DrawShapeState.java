@@ -12,14 +12,13 @@ import michal.projects.gui.PaintPane;
 import michal.projects.shape_builders.ShapeBuilder;
 import michal.projects.shapes.IMyShape;
 
-public class DrawShapeState extends PaneState{
+public class DrawShapeState extends PaneState {
 
     private Shape shape;
     private Shape preview;
     private ShapeBuilder builder;
 
-    public DrawShapeState(PaintPane canvas, ShapeBuilder builder)
-    {
+    public DrawShapeState(PaintPane canvas, ShapeBuilder builder) {
         super(canvas);
         this.builder = builder;
     }
@@ -29,8 +28,7 @@ public class DrawShapeState extends PaneState{
      * @param e
      */
     @Override
-    protected void onMouseClicked(MouseEvent e)
-    {
+    protected void onMouseClicked(MouseEvent e) {
         MyLogger.logger.log(Level.INFO, e.getX() + " " + e.getY());
         
         
@@ -60,8 +58,7 @@ public class DrawShapeState extends PaneState{
      * @param e mouse event
      */
     @Override
-    protected void onMouseMoved(MouseEvent e)
-    {
+    protected void onMouseMoved(MouseEvent e) {
         if(preview instanceof IMyShape)
             ((IMyShape)preview).setSecondParameter(new Point(e.getX(), e.getY()));
     }
@@ -77,8 +74,7 @@ public class DrawShapeState extends PaneState{
      * @see PaintPane
      */
     @Override
-    protected void onMouseExited(MouseEvent e)
-    {
+    protected void onMouseExited(MouseEvent e) {
         if(builder.getNumberOfPoints()!=0)
             exitState(canvas);
     }
@@ -87,8 +83,7 @@ public class DrawShapeState extends PaneState{
      * @brief clears preview shape and selected points, changes mouse events to default
      * @see PaintPane
      */
-    private void exitState(PaintPane canvas)
-    {
+    private void exitState(PaintPane canvas) {
         canvas.getChildren().remove(preview);
         builder.clearPoints();
         canvas.setState(new DefaultState(canvas));

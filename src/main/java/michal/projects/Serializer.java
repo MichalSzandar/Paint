@@ -17,8 +17,7 @@ import michal.projects.shapes.IMyShape;
 
 public final class Serializer {
     @SuppressWarnings("exports")
-    public static void serializeShapesFromCanvas(PaintPane canvas, String fileName)
-    {
+    public static void serializeShapesFromCanvas(PaintPane canvas, String fileName) {
         List<Object> serializedObjects = new ArrayList<>();
 
         for(var node : canvas.getChildren())

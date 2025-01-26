@@ -3,8 +3,7 @@ import java.util.ArrayList;
 
 import michal.projects.Point;
 
-public interface IMyShape
-{
+public interface IMyShape {
    /**
      * @brief Sets the first parameter of the shape.
      * @param point The point to set as the first parameter.

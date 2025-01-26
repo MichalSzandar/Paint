@@ -7,11 +7,11 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.shape.Circle;
 import michal.projects.gui.PaintPane;
 
-public class DrawSprayState extends PaneState{
+public class DrawSprayState extends PaneState {
     private Random random;
     private int sprayDensity;
     
-    public DrawSprayState(PaintPane canvas){
+    public DrawSprayState(PaintPane canvas) {
         super(canvas);
         random = new Random();
         sprayDensity = 30;

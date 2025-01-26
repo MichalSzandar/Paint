@@ -10,13 +10,11 @@ import michal.projects.MyLogger;
 import michal.projects.Point;
 import michal.projects.Utils;
 
-public class MyTriangle extends Polygon implements IMyShape
-{
+public class MyTriangle extends Polygon implements IMyShape {
     private double difX, difY;
     private boolean isActive;
 
-    public MyTriangle(double startX, double startY, double endX, double endY, Color borderColor)
-    {
+    public MyTriangle(double startX, double startY, double endX, double endY, Color borderColor) {
         super(new double[]{startX, startY, endX - 50.0, endY, endX + 50.0, endY});
 
         setFill(borderColor);
@@ -53,8 +51,7 @@ public class MyTriangle extends Polygon implements IMyShape
     }
 
     @Override
-    public void setActive() 
-    {
+    public void setActive() {
         setStroke(Utils.invertColor(getFill()));
         isActive = true;
 
@@ -62,8 +59,7 @@ public class MyTriangle extends Polygon implements IMyShape
     }
 
     @Override
-    public void setDisabled() 
-    {
+    public void setDisabled() {
         setStroke(Color.TRANSPARENT);
         isActive = false;
 

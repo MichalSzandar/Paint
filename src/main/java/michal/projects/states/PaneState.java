@@ -7,7 +7,7 @@ import michal.projects.gui.PaintPane;
 public abstract class PaneState {
     protected PaintPane canvas;
 
-    public PaneState(PaintPane canvas){
+    public PaneState(PaintPane canvas) {
         this.canvas = canvas;
     }
 
@@ -18,7 +18,7 @@ public abstract class PaneState {
     protected abstract void onMouseExited(MouseEvent e);
     protected abstract void onScroll(ScrollEvent e);
 
-    public void setMouseEvents(){
+    public void setMouseEvents() {
         canvas.setOnMouseClicked(event -> onMouseClicked(event));
         canvas.setOnMousePressed(event -> onMousePressed(event));
         canvas.setOnMouseDragged(event -> onMouseDragged(event));

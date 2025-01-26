@@ -7,11 +7,11 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import michal.projects.gui.PaintPane;
 
-public class DrawPencilState extends PaneState{
+public class DrawPencilState extends PaneState {
     private Path currentPath;
     private double opacity;
 
-    public DrawPencilState(PaintPane canvas, double opacity){
+    public DrawPencilState(PaintPane canvas, double opacity) {
         super(canvas);
         this.opacity = opacity; 
     }

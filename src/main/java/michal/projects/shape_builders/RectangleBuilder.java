@@ -4,11 +4,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import michal.projects.shapes.MyRectangle;
 
-public class RectangleBuilder extends ShapeBuilder 
-{
+public class RectangleBuilder extends ShapeBuilder {
     @Override
-    public Shape generateShape( Color color) 
-    {
+    public Shape generateShape( Color color) {
         if(points.size()!=2)
             throw new IndexOutOfBoundsException("not enough points to create full Rectangle, only preview available");
 
@@ -18,8 +16,7 @@ public class RectangleBuilder extends ShapeBuilder
     }
     
     @Override
-    public Shape getPreview() 
-    {
+    public Shape getPreview() {
         if(points.size()!=1)
             throw new IndexOutOfBoundsException("you need at least one point to create preview");
 

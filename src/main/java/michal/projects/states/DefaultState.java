@@ -12,14 +12,13 @@ import michal.projects.Point;
 import michal.projects.gui.PaintPane;
 import michal.projects.shapes.IMyShape;
 
-public class DefaultState extends PaneState
-{
+public class DefaultState extends PaneState {
     private IMyShape shape;
     private double difX;
     private double difY;
     private double startRotation;
 
-    public DefaultState(PaintPane pane){
+    public DefaultState(PaintPane pane) {
         super(pane);
     }
     /**

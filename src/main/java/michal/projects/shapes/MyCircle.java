@@ -9,19 +9,17 @@ import michal.projects.MyLogger;
 import michal.projects.Point;
 import michal.projects.Utils;
 
-public class MyCircle extends Circle implements IMyShape
-{
+public class MyCircle extends Circle implements IMyShape {
     private boolean isActive;
     
     /**
-     * @brief created MyCircle object based on center point, radius, color
+     * @brief creates MyCircle object based on center point, radius, color
      * @param centerX x coordinate of circle's center
      * @param centerY y coordinate of circle's center
      * @param radius radius of circle
      * @param color color of shape
      */
-    public MyCircle(double centerX, double centerY, double radius, Color color)
-    {
+    public MyCircle(double centerX, double centerY, double radius, Color color) {
         super(centerX, centerY, radius);
         
         setFill(color);
@@ -44,8 +42,7 @@ public class MyCircle extends Circle implements IMyShape
     }
 
     @Override
-    public void setActive() 
-    {
+    public void setActive() {
         setStroke(Utils.invertColor(getFill()));
         isActive = true;
 
@@ -53,8 +50,7 @@ public class MyCircle extends Circle implements IMyShape
     }
 
     @Override
-    public void setDisabled() 
-    {
+    public void setDisabled() {
         setStroke(Color.TRANSPARENT);
         isActive = false;
 

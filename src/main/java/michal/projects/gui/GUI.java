@@ -9,7 +9,6 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
-import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -27,10 +26,13 @@ import michal.projects.states.DrawPencilState;
 import michal.projects.states.DrawShapeState;
 import michal.projects.states.DrawSprayState;
 
-public class GUI 
-{
-    public GUI(Stage stage)
-    {
+/**
+ * class responsible for setting up main stage
+ */
+public class GUI {
+    public GUI(Stage stage) {
+
+        //importing icons
         Image circleImg = new Image(getClass().getResource("/circle.png").toExternalForm());
         Image rectImg = new Image(getClass().getResource("/rectangle.png").toExternalForm());
         Image triangleImg = new Image(getClass().getResource("/triangle.png").toExternalForm());
@@ -47,25 +49,25 @@ public class GUI
         DrawShapeState drawCircle = new DrawShapeState(canvas, new CircleBuilder());
         DrawShapeState drawTriangle = new DrawShapeState(canvas, new TriangleBuilder());
 
-        ShapeButton rectangleButton = new ShapeButton(canvas, drawRectangle);
+        StateButton rectangleButton = new StateButton(canvas, drawRectangle);
         rectangleButton.setGraphic(createImageView(rectImg));
 
-        ShapeButton circleButton = new ShapeButton(canvas, drawCircle);
+        StateButton circleButton = new StateButton(canvas, drawCircle);
         circleButton.setGraphic(createImageView(circleImg));
 
-        ShapeButton triangleButton = new ShapeButton(canvas, drawTriangle);
+        StateButton triangleButton = new StateButton(canvas, drawTriangle);
         triangleButton.setGraphic(createImageView(triangleImg));
 
-        ShapeButton pencilButton = new ShapeButton(canvas, new DrawPencilState(canvas, 1));
+        StateButton pencilButton = new StateButton(canvas, new DrawPencilState(canvas, 1));
         pencilButton.setGraphic(createImageView(pencilImg));
 
-        ShapeButton highlighterButton = new ShapeButton(canvas, new DrawPencilState(canvas, 0.5));
+        StateButton highlighterButton = new StateButton(canvas, new DrawPencilState(canvas, 0.5));
         highlighterButton.setGraphic(createImageView(highlighterImg));
 
-        ShapeButton sprayButton = new ShapeButton(canvas, new DrawSprayState(canvas));
+        StateButton sprayButton = new StateButton(canvas, new DrawSprayState(canvas));
         sprayButton.setGraphic(createImageView(sprayImg));
 
-        ShapeButton handButton = new ShapeButton(canvas, new DefaultState(canvas));
+        StateButton handButton = new StateButton(canvas, new DefaultState(canvas));
         handButton.setGraphic(createImageView(handImg));
 
         Button undoButton = new Button();
@@ -124,7 +126,20 @@ public class GUI
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(menu1, menu2);
 
-        ToolBar toolBar = new ToolBar(circleButton, rectangleButton, triangleButton, handButton, pencilButton, highlighterButton, sprayButton, colorPicker, radiusControl, undoButton, redoButton);
+        PaintToolBar toolBar = new PaintToolBar();
+        toolBar.addStateButton(circleButton);
+        toolBar.addStateButton(rectangleButton);
+        toolBar.addStateButton(triangleButton);
+        toolBar.addStateButton(handButton);
+        toolBar.addStateButton(pencilButton);
+        toolBar.addStateButton(highlighterButton);
+        toolBar.addStateButton(sprayButton);
+        toolBar.addColorPicker(colorPicker);
+        toolBar.addRadiusControl(radiusControl);
+        toolBar.addButton(undoButton);
+        toolBar.addButton(redoButton);
+        toolBar.requestLayout();
+
         VBox root = new VBox(menuBar, toolBar,canvas);
         Scene scene = new Scene(root);
         

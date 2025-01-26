@@ -10,15 +10,12 @@ import michal.projects.MyLogger;
 import michal.projects.Point;
 import michal.projects.Utils;
 
-public class MyRectangle extends Rectangle implements IMyShape
-{
+public class MyRectangle extends Rectangle implements IMyShape {
     private double initialX;
     private double initialY;
     private boolean isActive;
-    //private EditShapeState editState;
 
-    public MyRectangle(double startX, double startY, double width, double height, Color borderColor)
-    {
+    public MyRectangle(double startX, double startY, double width, double height, Color borderColor) {
         super(startX, startY, width, height);
         initialX = getX();
         initialY = getY();
@@ -60,8 +57,7 @@ public class MyRectangle extends Rectangle implements IMyShape
     }
 
     @Override
-    public void setActive() 
-    {
+    public void setActive() {
         setStroke(Utils.invertColor(getFill()));
         isActive = true;
 
@@ -69,8 +65,7 @@ public class MyRectangle extends Rectangle implements IMyShape
     }
 
     @Override
-    public void setDisabled() 
-    {
+    public void setDisabled() {
         setStroke(Color.TRANSPARENT);
         isActive = false;
 
@@ -94,6 +89,4 @@ public class MyRectangle extends Rectangle implements IMyShape
     public boolean isActive() {
         return isActive;
     }
-
-
 }

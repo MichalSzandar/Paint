@@ -20,8 +20,7 @@ public class PaintPane extends Pane
     private Stack<Node> recentlyAddedNodes;
     private Stack<Node> recentlyDeletedNodes;
 
-    public PaintPane()
-    {
+    public PaintPane() {
         super();
         setPrefSize(800, 1000);
         shapeMap = new ShapeMap();
@@ -38,46 +37,44 @@ public class PaintPane extends Pane
         recentlyDeletedNodes = new Stack<>();
     }
 
-    public Color getActiveColor()
-    {
+    public Color getActiveColor() {
         return activeColor;
     }
 
-    public void setActiveColor(Color color)
-    {
+    public void setActiveColor(Color color) {
         activeColor = color;
     }
 
-    public double getCurrentBrushSize(){
+    public double getCurrentBrushSize() {
         return currentBrushSize;
     }
 
-    public void setBrushSize(double size){
+    public void setBrushSize(double size) {
         currentBrushSize = size;
     }
 
-    public void setState(PaneState state){
+    public void setState(PaneState state) {
         this.state = state;
         state.setMouseEvents();
     }
 
-    public void addElement(Node node){
+    public void addElement(Node node) {
         getChildren().add(node);
         recentlyAddedNodes.push(node);
     }
 
-    public void removeElement(Node node){
+    public void removeElement(Node node) {
         getChildren().remove(node);
         recentlyDeletedNodes.push(node);
     }
 
-    public void undo(){
+    public void undo() {
         Node last = recentlyAddedNodes.pop();
         getChildren().remove(last);
         recentlyDeletedNodes.push(last);
     }
 
-    public void redo(){
+    public void redo() {
         Node last = recentlyDeletedNodes.pop();
         getChildren().add(last);
         recentlyAddedNodes.push(last);
